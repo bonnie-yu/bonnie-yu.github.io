@@ -129,6 +129,36 @@
                         <li> Reach out to Gansu local bureau of education and target volunteer schools. </li>
                         <li>Oversee the execution of year plan and ensure the smooth running of various functions across the year.</li>
                     </ul>
+                    
+                    
+                    <p id="content">
+                        hello
+                    </p>
+                    <script>
+                        experiences = [{
+                            'title': 'university',
+                            'date': '2020',
+                        }, {
+                            'title': 'middle school',
+                            'date': '2000',
+
+
+                        }]
+                        o = document.getElementById('content')
+                        allItemString = ''
+
+                        for (i = 0; i < experiences.length; i++) {
+                            console.log(i)
+                            itemString = '<li>' + experiences[i]['title'] +
+                                ',' + experiences[i]['date'] +
+                                '</li>'
+                            allItemString = allItemString + itemString
+                        }
+
+
+                        o.innerHTML = '<ul>' + allItemString + '</ul>'
+                    </script>
+                    
 
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 box " style="word-wrap: break-word">
