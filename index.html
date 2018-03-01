@@ -113,6 +113,38 @@
         <br><br>
         <br></br>
 
+    <p id="content">
+   
+</p >
+
+<script>
+WorkExperiences=[{
+    'title':'EXTERNAL PRESIDENT',
+    'date':'2017.10-present ',
+    'location':'HKBU'
+    },{
+        'title':'VICE PRESIDENT OF EVENT MANAGEMENT DEPARTMENT',
+    'date':'2016.12 - 2017.4',
+    'location':'AIESEC in HKBU'
+    },{
+        'title':'OFFICER OF BRANDING AND MARKETING',
+    'date':'2016.9 - 2017.4',
+    'location':'AIESEC in HKBU'
+    }]
+    o = document.grtElementById('content')
+    allItemString=''
+    for (i=0;i<Achievements.lenghth;i++) {
+    console.log(i)
+    itemString = '<li>'+ 
+        WorkExperiences [i]['tilte']+','+
+    WorkExperiences [i]['date']+','+
+    WorkExperiences [i]['location']+'</i>'
+    allItemString = allItemString+ itemString
+    }
+o.innerHTML = '<ul>' + allItemString +'</ul>'
+</script>
+    
+    <br/>
         <div class="container2 ">
             <h3><u>WORK EXPERIENCE</u></h3>
             <div class="row">
@@ -130,34 +162,7 @@
                         <li>Oversee the execution of year plan and ensure the smooth running of various functions across the year.</li>
                     </ul>
                     
-                    
-                    <p id="content">
-                        hello
-                    </p>
-                    <script>
-                        experiences = [{
-                            'title': 'university',
-                            'date': '2020',
-                        }, {
-                            'title': 'middle school',
-                            'date': '2000',
-
-
-                        }]
-                        o = document.getElementById('content')
-                        allItemString = ''
-
-                        for (i = 0; i < experiences.length; i++) {
-                            console.log(i)
-                            itemString = '<li>' + experiences[i]['title'] +
-                                ',' + experiences[i]['date'] +
-                                '</li>'
-                            allItemString = allItemString + itemString
-                        }
-
-
-                        o.innerHTML = '<ul>' + allItemString + '</ul>'
-                    </script>
+                   
                     
 
                 </div>
