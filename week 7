@@ -1,0 +1,92 @@
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-time.v1.min.js"></script>
+<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+<script src="https://d3js.org/d3-scale.v2.min.js"></script>
+<h1>
+    demo of d3
+</h1>
+<svg>
+    <text x=10 y=10>bubble</text>
+</svg>
+
+<style>
+    svg {
+        width: 1000px;
+        height: 1000px;
+    }
+</style>
+
+<script>
+    var x = d3.scaleLinear()
+        .domain([0, 180])
+        .range([0, 250]);
+    var y = d3.scaleLinear()
+        .domain([0, 150])
+        .range([200, 0]);
+
+    var xAxis = d3.axisBottom().scale(x);
+    var yAxis = d3.axisLeft().scale(y);
+
+    var svg = d3.select('svg');
+
+
+    svg.append('g')
+        .attr('transform', 'translate(50,200)')
+        .call(xAxis);
+
+    svg.append('g')
+        .attr('transform', 'translate(50,0)')
+        .call(yAxis);
+
+
+    var data = [{
+        'height': 170,
+        'weight': 60,
+    }, {
+        'height': 160,
+        'weight': 70,
+    }, {
+        'height': 180,
+        'weight': 65,
+    }, {
+        'height': 120,
+        'weight': 50,
+    }];
+
+    var frameHeight = 150;
+
+    svg
+        .selectAll('circle')
+        .data(data)
+        .enter()
+        .append('circle')
+        .attr('cx', function(d) {
+            return x(d['height']);
+        })
+        .attr('cy', function(d) {
+            return y((frameHeight - d['weight']) * 1.2);
+        })
+        .attr('r', function(d) {
+            return Math.sqrt(d['weight']);
+        })
+        .attr('fill', '#ff0000');
+
+    // var frameHeight = 150;
+    // for (i = 0; i < data.length; i++) {
+    //     var x = data[i]['height'];
+    //     var y = frameHeight - data[i]['weight'];
+    //     svg.append('circle').attr('cx', x).attr('cy', y).attr('r', 5);
+
+    // }
+
+
+    // svg.append('circle').attr('cx', data[1]['height']).attr('cy', data[1]['weight']).attr('r', 10);
+    // svg.append('circle').attr('cx', data[2]['height']).attr('cy', data[2]['weight']).attr('r', 10);
+    // svg.append('circle').attr('cx', data[3]['height']).attr('cy', data[3]['weight']).attr('r', 10);
+</script>
