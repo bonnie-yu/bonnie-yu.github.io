@@ -1,3 +1,14 @@
+<script src="https://d3js.org/d3.v5.js"></script>
+
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-collection.v1.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+<script src="https://d3js.org/d3-time.v1.min.js"></script>
+<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+<script src="https://d3js.org/d3-scale.v2.min.js"></script>
+
 
 <meta charset="utf-8">
 
@@ -151,3 +162,191 @@
             return d;
         }
     </script>
+
+    
+    
+    <svg>
+    <text x=10 y=10></text>
+</svg>
+
+<style>
+    svg {
+        width: 1000px;
+        height: 2000px;
+    }
+</style>
+
+<script>
+    var x = d3.scaleLinear()
+        .domain([0, 600])
+        .range([0, 600]);
+    // var x = d3.scale.ordinal()
+    //     .domain(["pre-primary education", "primary education", "secondary education", "special education", "other education services", "post-secondary,vocational and professional educayion"])
+    //     .rangePoints([0, width]);
+    var y = d3.scaleLinear()
+        .domain([0, 30000])
+        .range([700, 0]);
+
+    var xAxis = d3.axisBottom().scale(x);
+
+    var yAxis = d3.axisLeft().scale(y);
+
+    var svg = d3.select('svg');
+
+
+    svg.append('g')
+        .attr('transform', 'translate(50,700)')
+        .call(xAxis);
+
+    svg.append('g')
+        .attr('transform', 'translate(50,0)')
+        .call(yAxis);
+
+
+
+    var dataset = [
+            [2016, [{
+                "name": "pre-primary education",
+                "width": 100,
+                "value": 3484.3,
+            }, {
+                "name": "primary education",
+                "width": 200,
+                "value": 16382.5,
+            }, {
+                "name": "secondary education",
+                "width": 300,
+                "value": 25102.8,
+            }, {
+                "name": "special education",
+                "width": 400,
+                "value": 2309.5,
+            }, {
+                "name": "other education services",
+                "width": 500,
+                "value": 902.7,
+            }, {
+                "name": "post-secondary,vocational and professional educayion",
+                "width": 600,
+                "value": 3006.5,
+            }, ]],
+            [2017, [{
+                "name": "pre-primary education",
+                "width": 100,
+                "value": 5282.2,
+            }, {
+                "name": "primary education",
+                "width": 200,
+                "value": 17367.8,
+            }, {
+                "name": "secondary education",
+                "width": 300,
+                "value": 24341.9,
+            }, {
+                "name": "special education",
+                "width": 400,
+                "value": 2451.6,
+            }, {
+                "name": "other education services",
+                "width": 500,
+                "value": 952.2,
+            }, {
+                "name": "post-secondary,vocational and professional educayion",
+                "width": 600,
+                "value": 3390.9,
+            }, ]],
+            [2018, [{
+                "name": "pre-primary education",
+                "width": 100,
+                "value": 5995.7,
+            }, {
+                "name": "primary education",
+                "width": 200,
+                "value": 19228.9,
+            }, {
+                "name": "secondary education",
+                "width": 300,
+                "value": 27305.7,
+            }, {
+                "name": "special education",
+                "width": 400,
+                "value": 2726.6,
+            }, {
+                "name": "other education services",
+                "width": 500,
+                "value": 1038.6,
+            }, {
+                "name": "post-secondary,vocational and professional educayion",
+                "width": 600,
+                "value": 5245.6,
+            }, ]],
+        ]
+
+
+    var frameHeight = 700;
+
+    svg
+        .selectAll('circle')
+        .data(dataset[0][1])
+        .enter()
+        .append('circle')
+        .attr('cx', function(d) {
+            return x(d["width"]);
+        })
+        .attr('cy', function(d) {
+
+            return y((frameHeight + d["value"]));
+        })
+        .attr('r', function(d) {
+            return Math.sqrt(d["value"]) / 3;
+        })
+        .attr('fill', '#ff0000');
+
+
+
+    var keySnapshot = 0;
+    d3.interval(function() {
+        keySnapshot = (keySnapshot + 1) % dataset.length;
+        svg
+            .selectAll('circle')
+            .data(dataset[1][1])
+            .transition()
+            .duration(500)
+
+        .attr('cx', function(d) {
+                return x(d["width"]);
+            })
+            .attr('cy', function(d) {
+
+                return y((frameHeight + d["value"]));
+            })
+            .attr('r', function(d) {
+                return Math.sqrt(d["value"]) / 3;
+            })
+            .attr("fill", "steelblue")
+    }, 700)
+
+    var keySnapshot = 0;
+    d3.interval(function() {
+        keySnapshot = (keySnapshot + 1) % dataset.length;
+        svg
+            .selectAll('circle')
+            .data(dataset[2][1])
+            .transition()
+            .duration(500)
+
+        .attr('cx', function(d) {
+                return x(d["width"]);
+            })
+            .attr('cy', function(d) {
+
+                return y((frameHeight + d["value"]));
+            })
+            .attr('r', function(d) {
+                return Math.sqrt(d["value"]) / 3;
+            })
+            .attr("fill", "green")
+    }, 700)
+
+ 
+</script>
