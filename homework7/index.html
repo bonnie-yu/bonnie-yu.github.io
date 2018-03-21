@@ -237,21 +237,21 @@
         </style>
 
         <script>
-            var x = d3.scaleLinear()
+            var x = d3v4.scaleLinear()
                 .domain([0, 600])
                 .range([0, 600]);
             // var x = d3.scale.ordinal()
             //     .domain(["pre-primary education", "primary education", "secondary education", "special education", "other education services", "post-secondary,vocational and professional educayion"])
             //     .rangePoints([0, width]);
-            var y = d3.scaleLinear()
+            var y = d3v4.scaleLinear()
                 .domain([0, 30000])
                 .range([700, 0]);
 
-            var xAxis = d3.axisBottom().scale(x);
+            var xAxis = d3v4.axisBottom().scale(x);
 
-            var yAxis = d3.axisLeft().scale(y);
+            var yAxis = d3v4.axisLeft().scale(y);
 
-            var svg = d3.select('svg');
+            var svg = d3v4.select('svg');
 
 
             svg.append('g')
@@ -365,7 +365,7 @@
 
 
             var keySnapshot = 0;
-            d3.interval(function() {
+            d3v4.interval(function() {
                 keySnapshot = (keySnapshot + 1) % dataset.length;
                 svg
                     .selectAll('circle')
@@ -387,7 +387,7 @@
             }, 700)
 
             var keySnapshot = 0;
-            d3.interval(function() {
+            d3v4.interval(function() {
                 keySnapshot = (keySnapshot + 1) % dataset.length;
                 svg
                     .selectAll('circle')
