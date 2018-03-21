@@ -1,4 +1,4 @@
-<script src="//d3js.org/d3.v5.js"></script>
+<!-- <script src="//d3js.org/d3.v5.js"></script>
 
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script src="https://d3js.org/d3-collection.v1.min.js"></script>
@@ -7,7 +7,7 @@
 <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
 <script src="https://d3js.org/d3-time.v1.min.js"></script>
 <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
-<script src="https://d3js.org/d3-scale.v2.min.js"></script>
+<script src="https://d3js.org/d3-scale.v2.min.js"></script> -->
 
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script> -->
 
@@ -93,6 +93,25 @@
 <!--     <p style="font-size:20px">
         It should look like this but it cannot work here:( Don't know why.
     </p> -->
+    
+        <div class="1">
+        <svg>
+           <text x=10 y=10></text>
+        </svg>
+        <script src="//d3js.org/d3.v3.js">
+        </script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+        <script src="//labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+        <style>
+            svg {
+                width: 1000px;
+                height: 750px;
+            }
+        </style>
+    
+    
     <script>
         var margin = {
                 top: 40,
@@ -182,10 +201,22 @@
             return d;
         }
     </script>
+    </div>
     
 
 
     <div>
+        <script src="d3v4.js"></script>
+        <script src="https://d3js.org/d3-array.v1.min.js"></script>
+        <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+        <script src="https://d3js.org/d3-color.v1.min.js"></script>
+        <script src="https://d3js.org/d3-format.v1.min.js"></script>
+        <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+        <script src="https://d3js.org/d3-time.v1.min.js"></script>
+        <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+        <script src="https://d3js.org/d3-scale.v2.min.js"></script>
+        
+        
         <svg>
     <text x=10 y=10></text>
       </svg>
@@ -360,7 +391,7 @@
                 keySnapshot = (keySnapshot + 1) % dataset.length;
                 svg
                     .selectAll('circle')
-                    .data(dataset[2][1])
+                    .data(dataset[keySnapshot][1])
                     .transition()
                     .duration(500)
 
