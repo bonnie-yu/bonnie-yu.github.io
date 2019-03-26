@@ -41,12 +41,16 @@ ul {
     padding-left: 2%;
 }
 
+p {
+    font-size: 15px;
+}
+
 h2 {
     font-size: 30px;
 }
 
 h4 {
-    font-size: 17px;
+    font-size: 15px;
 }
 
 li {
@@ -55,8 +59,13 @@ li {
 }
 
 .box {
-    border: 5px solid transparent;
+    border: 3px solid transparent;
     background-clip: padding-box;
+}
+
+#content {
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 img {
