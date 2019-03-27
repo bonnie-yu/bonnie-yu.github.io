@@ -169,6 +169,8 @@ img[data-src] {
 .img-responsive {
     width: 100%;
     height: 300px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 hr.style-one {
@@ -201,4 +203,23 @@ hr.style-two {
 .fab:hover,
 .fas:hover {
     color: rgba(103, 77, 77, 0.194);
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+    .img-responsive {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* STYLES GO HERE */
+    .img-responsive {
+        width: 100%;
+        height: 300px;
+    }
 }
